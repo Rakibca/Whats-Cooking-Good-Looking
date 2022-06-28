@@ -1,0 +1,118 @@
+:root {
+  --bisque: #f1dabf;
+  --bistre: #362417;
+  --cinereous: #92817A;
+  --snow: #FFFBFF;
+  --altysun: #FFA62B;
+}
+
+.tw {
+  font-family: "Special Elite";
+}
+
+body {
+  background-color: var(--bistre);
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    background-color: var(--bisque);
+    color: var(--bistre);
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.navkey {
+  margin-left: 7px;
+}
+
+.navkey:link, .navkey:visited {
+  color: var(--bistre);
+}
+
+.navkey:hover, .navkey:active {
+  color: var(--bistre);
+  text-shadow:0px 0px 10px var(--cinereous);
+  -moz-transition: all 0.15s ease-in;
+  -o-transition: all 0.15s ease-in;
+  -webkit-transition: all 0.15s ease-in;
+  transition: all 0.15s ease-in;
+  text-decoration: none;
+}
+
+.overhead {
+  background-color: var(--cinereous);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  padding-bottom: 10px;
+}
+
+.title {
+  margin-top: 1%;
+  font-size: large;
+  margin-left: 3%;
+  padding: 3px;
+}
+
+.login-section, .signup-section {
+  justify-content: center;
+  text-align: center;
+  width: 50%;
+  background-color: var(--cinereous);
+  margin: 0 auto;
+  margin-top: 3%;
+  padding: 1%;
+}
+
+input[type=text] {
+  width: 40%;
+  padding: 6px 10px;
+  margin: 8px auto;
+  box-sizing: border-box;
+}
+
+input[type=password] {
+  width: 40%;
+  padding: 6px 10px;
+  margin: 8px auto;
+  box-sizing: border-box;
+}
+
+.login-btn, .signup-btn {
+  background-color: var(--bistre);
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.login-btn:hover, .signup-btn:hover {
+  background-color: var(--bistre);
+  box-shadow: 0 8px 16px 0 var(--bistre);
+  font-size: 24px;
+}
+
+.signupkey:link, .signupkey:visited {
+  color: var(--bistre);
+}
+
+.signupkey:hover, .signupkey:active {
+  color: var(--bistre);
+  text-shadow:0px 0px 10px var(--bistre);
+  -moz-transition: all 0.15s ease-in;
+  -o-transition: all 0.15s ease-in;
+  -webkit-transition: all 0.15s ease-in;
+  transition: all 0.15s ease-in;
+  text-decoration: none;
+}
