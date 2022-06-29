@@ -1,51 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--DO NOT USE OR DELETE. FILE ONLY FOR TESTING VIEWS-->
 
+<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
-    <title>The Developer's Tech Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Arima:wght@300&display=swap" rel="stylesheet">    
+
+    <title>What's Cooking Good Looking?</title>
+
     <link rel="stylesheet" href="/style/style.css">
 </head>
 
 <body>
-    <div class="wrapper">
-        <header class="row navbar tw">
-                <a href="/" class="lead navkey">HOMEPAGE | </a>
-                {{!-- {{#if loggedIn}} --}}
-                <a href="/dashboard" class="lead navkey">DASHBOARD | </a>
-                {{!-- <a id="logout" class="lead logout navkey">LOGOUT</a> --}}
-                {{!-- {{else}} --}}
-                <a href="/login" class="lead navkey">LOGIN</a>
-                {{!-- {{/if}} --}}
-        </header>
 
-        <div class="row overhead tw">
-            <div class="lead title">
-                <h1>The Developer's Tech Blog</h1>
-            </div>
+    <!--SEARCH BAR-->
+    <section>
+
+        <div class="input-group">
+          <form class="search" action="action_page.php">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>  
         </div>
+        
+        </section>
 
-        <main>
-            {{{ body }}}
-        </main>
-    </div>
+    
+    <!--<script src="/public/scripts/search.js"></script>-->
+    
 
-    <div class="wrapper">
-        <div class="search-input">
-          <a href="" target="_blank" hidden></a>
-          <input type="text" placeholder="Where?" class="mapControls" id="searchMapInput">
-          <div class="autocom-box">
-          </div>
-          <div class="icon"><i class="fas fa-search"></i></div>
-        </div>
-      </div>
-
-    {{!-- {{#if loggedIn}}
-    <script src="/javascript/logout.js"></script>
-    {{/if}} --}}
 </body>
 
 </html>

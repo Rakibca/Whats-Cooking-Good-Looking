@@ -1,25 +1,14 @@
-<section class="search-section">
+<!--SEARCH BAR-->
 
-    <header class="row navbar tw">
-        <a href="/" class="lead navkey">HOMEPAGE | </a>
-                {{!-- {{#if loggedIn}} --}}
-        <a href="/dashboard" class="lead navkey">DASHBOARD | </a>
-                {{!-- <a id="logout" class="lead logout navkey">LOGOUT</a> --}}
-                {{!-- {{else}} --}}
-        <a href="/login" class="lead navkey">LOGIN</a>
-                {{!-- {{/if}} --}}
-    </header>
+<section>
 
 <div class="input-group">
-  <div class="form-outline">
-    <input type="search" id="form1" class="form-control" />
-    <label class="form-label" for="form1">Search</label>
-  </div>
-  <button type="button" class="btn btn-primary">
-    <i class="fas fa-search"></i>
-  </button>
+  <form class="search" action="action_page.php">
+    <input type="text" placeholder="Search.." name="search">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form>  
 </div>
 
 </section>
 
-<script src="/public/scripts/search.js"></script>
+<!--<script src="/public/scripts/search.js"></script>-->
