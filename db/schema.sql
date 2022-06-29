@@ -10,7 +10,8 @@ DROP TABLE IF EXISTS recipes;
 CREATE TABLE user(
     userID INT auto_increment PRIMARY KEY,
     username VARCHAR(15) NOT NULL,
-    /*TO DO: password bcrypt - FIGURE OUT SYNTAX AND ADD*/
+    userPass VARCHAR(64) NOT NULL
+
 );
 
 CREATE TABLE recipes(
@@ -19,5 +20,5 @@ CREATE TABLE recipes(
     ingredients JSON,
     instructions VARCHAR(500) NOT NULL,
     userID INT,
-    CONSTRAINT fk_user FOREIGN KEY (userID) REFERENCES recipes(userID) ON DELETE CASCADE
+    CONSTRAINT fk_user FOREIGN KEY (userID) REFERENCES user(userID) ON DELETE CASCADE
 );
