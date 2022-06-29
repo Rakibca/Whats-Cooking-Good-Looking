@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Arima:wght@300&display=swap" rel="stylesheet">    
+
     <title>What's Cooking Good Looking?</title>
+
     <link rel="stylesheet" href="/style/style.css">
 </head>
 
@@ -14,17 +17,18 @@
     <div class="wrapper">
         <header class="row navbar tw">
                 <a href="/" class="lead navkey">HOMEPAGE | </a>
-                {{!-- {{#if loggedIn}} --}}
+                {{#if loggedIn}}
                 <a href="/dashboard" class="lead navkey">DASHBOARD | </a>
-                {{!-- <a id="logout" class="lead logout navkey">LOGOUT</a> --}}
-                {{!-- {{else}} --}}
+                <a href="/" id="logout" class="lead navkey">LOGOUT</a>
+                {{else}}
                 <a href="/login" class="lead navkey">LOGIN</a>
-                {{!-- {{/if}} --}}
+                {{/if}}
         </header>
 
         <div class="row overhead tw">
             <div class="lead title">
-                <h1>The Developer's Tech Blog</h1>
+                <h1>What's Cooking Good Looking?</h1>
+                <h4>A foodlover's recipe book...</h4>
             </div>
         </div>
 
@@ -33,9 +37,9 @@
         </main>
     </div>
 
-    {{!-- {{#if loggedIn}}
-    <script src="/javascript/logout.js"></script>
-    {{/if}} --}}
+    {{#if loggedIn}}
+    <script src="/scripts/logout.js"></script>
+    {{/if}}
 </body>
 
 </html>
