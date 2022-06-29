@@ -1,25 +1,25 @@
 :root {
   --bisque: #f1dabf;
-  --bistre: #362417;
-  --cinereous: #92817A;
-  --snow: #FFFBFF;
+  --bistre: #B5404D;
+  --cinereous: #78D7F7;
+  --snow: #2CA58D;
   --altysun: #FFA62B;
 }
 
 .tw {
-  font-family: "Special Elite";
+  font-family: "Arima";
 }
 
 body {
-  background-color: var(--bistre);
+  background-color: var(--snow);
 }
 
 .navbar {
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
-    background-color: var(--bisque);
-    color: var(--bistre);
+    background-color: var(--bistre);
+    color: var(--bisque);
     padding-left: 3%;
     padding-right: 3%;
 }
@@ -29,16 +29,17 @@ body {
 }
 
 .navkey:link, .navkey:visited {
-  color: var(--bistre);
+  color: var(--bisque);
 }
 
 .navkey:hover, .navkey:active {
-  color: var(--bistre);
-  text-shadow:0px 0px 10px var(--cinereous);
-  -moz-transition: all 0.15s ease-in;
-  -o-transition: all 0.15s ease-in;
-  -webkit-transition: all 0.15s ease-in;
-  transition: all 0.15s ease-in;
+  font-size: 24px;
+  color: var(--bisque);
+  text-shadow:0px 0px 20px var(--cinereous);
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
   text-decoration: none;
 }
 
@@ -57,7 +58,7 @@ body {
   padding: 3px;
 }
 
-.login-section, .signup-section {
+.login-section, .signup-section, .postform-section {
   justify-content: center;
   text-align: center;
   width: 50%;
@@ -81,7 +82,7 @@ input[type=password] {
   box-sizing: border-box;
 }
 
-.login-btn, .signup-btn {
+.login-btn, .signup-btn, .new-rcp-btn, .post-btn {
   background-color: var(--bistre);
   border: none;
   color: white;
@@ -95,13 +96,24 @@ input[type=password] {
   transition-duration: 0.4s;
   margin-top: 1%;
   margin-bottom: 1%;
+  border-radius: 3px;
 }
 
-.login-btn:hover, .signup-btn:hover {
+.new-rcp-btn {
+  max-height: 50px;
+}
+
+.login-btn:hover, .signup-btn:hover, .new-rcp-btn:hover, .post-btn:hover {
   background-color: var(--bistre);
-  box-shadow: 0 8px 16px 0 var(--bistre);
+  box-shadow: 0 8px 16px 0 var(--cinereous);
   font-size: 24px;
 }
+
+.new-post-btn:hover {
+  color: var(--bistre);
+  background-color: var(--bisque);
+}
+
 
 .signupkey:link, .signupkey:visited {
   color: var(--bistre);
@@ -115,4 +127,71 @@ input[type=password] {
   -webkit-transition: all 0.15s ease-in;
   transition: all 0.15s ease-in;
   text-decoration: none;
+}
+
+.dashboard-main {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: center;
+  border: 3px solid var(--bisque);
+  min-height: 50%;
+}
+
+.dashboard-rcp {
+  display: flex;
+  justify-content: center;
+  border: 3px solid var(--bisque);
+  min-height: 50%;
+  color: var(--bisque);
+}
+
+.post-list {
+  justify-content: center;
+  text-align: center;
+  width: 50%;
+  background-color: var(--cinereous);
+  margin: 0 auto;
+  margin-top: 3%;
+  padding: 1%;
+  list-style: none;
+}
+
+.single-post {
+  border: 3px solid var(--bistre);
+  margin-bottom: 10px;
+}
+
+.post-header {
+  background-color: var(--bistre);
+  color: var(--bisque);
+  padding: 3px;
+}
+
+.post-name {
+  font-size: 18px;
+  color: var(--bisque);
+}
+
+.post-name:link, .post-name:visited {
+  color: var(--bisque);
+}
+
+.post-name:hover, .post-name:active {
+  font-size: 24px;
+  text-shadow:0px 0px 10px var(--bisque);
+  -moz-transition: all 0.15s ease-in;
+  -o-transition: all 0.15s ease-in;
+  -webkit-transition: all 0.15s ease-in;
+  transition: all 0.15s ease-in;
+  text-decoration: none;
+}
+
+
+.post-info {
+  font-size: 12px;
 }

@@ -36,8 +36,8 @@ Recipe.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'user',
+        modelName: 'recipe',
     }
 );
 
-module.exports = User;
+module.exports = Recipe;

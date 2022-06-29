@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS blog_db;
+DROP DATABASE IF EXISTS recipe_db;
 
-CREATE DATABASE blog_db;
+CREATE DATABASE recipe_db;
 

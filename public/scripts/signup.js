@@ -1,28 +1,28 @@
-const loginFormHandler = async (event) => {
+const signupFormHandler = async (event) => {
     // Stop the browser from submitting the form so we can do so with JavaScript
     event.preventDefault();
   
     // Gather the data from the form elements on the page
-    const email = document.querySelector('#signup-un').value.trim();
+    const username = document.querySelector('#signup-un').value.trim();
     const password = document.querySelector('#signup-pw').value.trim();
   
-    if (email && password) {
+    if (username && password) {
       // Send the e-mail and password to the server
-      const response = await fetch('/api/users/login', {
+      const response = await fetch('/api/users/', {
         method: 'POST',
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ username, password }),
         headers: { 'Content-Type': 'application/json' },
       });
   
       if (response.ok) {
         document.location.replace('/dashboard');
       } else {
-        alert('LOGIN FAILED! PLS CHECK YOUR USERNAME OR PASSWORD!');
+        alert('SIGNUP FAILED! PLS TRY AGAIN LATER!');
       }
     }
   };
   
   document
-    .querySelector('.login-form')
-    .addEventListener('submit', loginFormHandler);
+    .querySelector('.signup-form')
+    .addEventListener('submit', signupFormHandler);
   
