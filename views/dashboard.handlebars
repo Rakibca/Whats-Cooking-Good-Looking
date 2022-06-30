@@ -1,30 +1,29 @@
-<section class="row dashboard-main">
+<section class="row dashboard-main tw">
     <div class="dashboard-header col-8">
-        <button type="submit" id="new-rcp-btn" class="new-rcp-btn">+ CRATE NEW RECIPE</button>
-    </div>
-    <div class="dashboard-rcp col-4">
-        <h1>RECIPES FROM THE API</h1>
-    </div>
-</section>
-
-
-
-
-
-
-
-{{!-- {{#if posts.length}}
-<section>
-    <h2>Your Dashboard</h2>
-    <ul class="post-list">
-        {{#each posts as |post|}}
+        <div class="row db-btn">
+            <button type="submit" id="new-rcp-btn" class="new-rcp-btn">+ CRATE NEW RECIPE</button>
+        </div> 
+    {{#if rcps.length}}
+    <section class="my-rcp-section">
+        <h2>My Recipes</h2>
+        <ul class="post-list">
+        {{#each rcps as |rcp|}}
         <li>
-            {{> post-info post}}
-            <a href="/dashboard/edit/{{post.id}}" class="edit-link">edit post</a>
+            {{> post-each rcp}}
+            <a href="/dashboard/edit/{{post.id}}" class="signupkey">EDIT RECIPE</a>
         </li>
         {{/each}}
-    </ul>
+        </ul>
+    <br>
+    <br>
+    </section>
+    {{/if}}
+    </div>
+
+    <div class="dashboard-apircp col-4">
+        <h1>SEARCH FUNCTION AND RECIPE FROM SEARCH</h1>
+    </div>
 </section>
-{{/if}} --}}
+
 
 <script src="/scripts/creatercp.js"></script>

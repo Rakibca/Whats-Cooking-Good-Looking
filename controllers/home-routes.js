@@ -1,12 +1,9 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { User,Recipe} = require('../models');
+const { User,Recipe } = require('../models');
 
 
-// GET all posts
-// router.get('/', async (req, res) => {
-//   res.render('homepage', {loggedIn: req.session.logged_in});
-// });
+// GET ON RANDOM RECIPE FROM THE API (RAKIBUL)
 router.get('/', (req, res) => {
   Recipe.findAll({
           attributes: [
@@ -17,24 +14,16 @@ router.get('/', (req, res) => {
               'instruction'
           ],
           include: [
-              // {
-              //     model: Comment,
-              //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-              //     include: {
-              //         model: User,
-              //         attributes: ['username']
-              //     }
-              // },
               {
                   model: User,
                   attributes: ['username']
               }
           ]
       })
-      .then(postData => {
-          const posts = postData.map(post => post.get({plain: true}));
+      .then(rcpData => {
+          const rcps = rcpData.map(rcp => rcp.get({plain: true}));
 
-          res.render('homepage', {posts, loggedIn: req.session.logged_in});
+          res.render('homepage', {rcps, loggedIn: req.session.logged_in});
       })
       .catch(err => {
           console.log(err);
@@ -42,25 +31,7 @@ router.get('/', (req, res) => {
       });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// LOGIN route
+// LOGIN route (TONY)
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
       res.redirect('/');
@@ -69,7 +40,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-// SIGNUP route
+// SIGNUP route (TONY)
 router.get('/signup', (req, res) => {
   if (req.session.logged_in) {
       res.redirect('/');
@@ -81,43 +52,3 @@ router.get('/signup', (req, res) => {
 
 
 module.exports = router;
-
-
-
-// router.get('/', (req, res) => {
-//   Post.findAll({
-//           attributes: [
-//               'id',
-//               'title',
-//               'content',
-//               'created_at'
-//           ],
-//           include: [{
-//                   model: Comment,
-//                   attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-//                   include: {
-//                       model: User,
-//                       attributes: ['username']
-//                   }
-//               },
-//               {
-//                   model: User,
-//                   attributes: ['username']
-//               }
-//           ]
-//       })
-//       .then(dbPostData => {
-//           const posts = dbPostData.map(post => post.get({
-//               plain: true
-//           }));
-
-//           res.render('homepage', {
-//               posts,
-//               loggedIn: req.session.loggedIn
-//           });
-//       })
-//       .catch(err => {
-//           console.log(err);
-//           res.status(500).json(err);
-//       });
-// });

@@ -1,19 +1,39 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { User } = require('../models');
+const { User, Recipe } = require('../models');
 const withAuth = require('../utils/auth.js');
 
-
+// GET ALL RECIPES (TONY)
 router.get('/', withAuth, (req, res) => {
-            res.render('dashboard', {
-                loggedIn: req.session.logged_in
-            });
-      
-});
+    Recipe.findAll({
+            attributes: [
+                'id',
+                'name',
+                'creator_id',
+                'ingredients',
+                'instruction'
+            ],
+            include: [
+                {
+                    model: User,
+                    attributes: ['username']
+                }
+            ]
+        })
+        .then(rcpData => {
+            const rcps = rcpData.map(rcp => rcp.get({plain: true}));
+  
+            res.render('dashboard', {rcps, loggedIn: req.session.logged_in});
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+  });
 
 
-router.get('/newpost', withAuth, (req, res) => {
-    res.render('newpostform', {
+router.get('/newrcp', withAuth, (req, res) => {
+    res.render('newrcpform', {
         loggedIn: true
     })
 });

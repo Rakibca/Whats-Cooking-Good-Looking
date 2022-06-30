@@ -58,7 +58,7 @@ body {
   padding: 3px;
 }
 
-.login-section, .signup-section, .postform-section {
+.login-section, .signup-section, .rcpform-section {
   justify-content: center;
   text-align: center;
   width: 50%;
@@ -82,7 +82,7 @@ input[type=password] {
   box-sizing: border-box;
 }
 
-.login-btn, .signup-btn, .new-rcp-btn, .post-btn {
+.login-btn, .signup-btn, .new-rcp-btn, .post-btn, .addrcp-btn {
   background-color: var(--bistre);
   border: none;
   color: white;
@@ -103,7 +103,7 @@ input[type=password] {
   max-height: 50px;
 }
 
-.login-btn:hover, .signup-btn:hover, .new-rcp-btn:hover, .post-btn:hover {
+.login-btn:hover, .signup-btn:hover, .new-rcp-btn:hover, .post-btn:hover, .addrcp-btn:hover {
   background-color: var(--bistre);
   box-shadow: 0 8px 16px 0 var(--cinereous);
   font-size: 24px;
@@ -137,12 +137,15 @@ input[type=password] {
 
 .dashboard-header {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
+  text-align: center;
   border: 3px solid var(--bisque);
-  min-height: 50%;
+  /* min-height: 50%; */
 }
 
-.dashboard-rcp {
+.dashboard-apircp {
   display: flex;
   justify-content: center;
   border: 3px solid var(--bisque);
@@ -153,17 +156,19 @@ input[type=password] {
 .post-list {
   justify-content: center;
   text-align: center;
-  width: 50%;
+  width: 90%;
   background-color: var(--cinereous);
   margin: 0 auto;
   margin-top: 3%;
   padding: 1%;
   list-style: none;
+  border-radius: 10px;
 }
 
 .single-post {
   border: 3px solid var(--bistre);
   margin-bottom: 10px;
+  border-radius: 10px;
 }
 
 .post-header {
@@ -194,4 +199,16 @@ input[type=password] {
 
 .post-info {
   font-size: 12px;
+}
+
+.db-btn {
+  border-bottom: 1px solid grey;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  margin-bottom: 1.5%;
+}
+
+.my-rcp-section {
+  margin-top: 1.5%;
 }
