@@ -1,21 +1,21 @@
 const router = require('express').Router();
-const { User, Post } = require('../../models');
+const { User, Recipe } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// Create a post
+// Create a recipe
 router.post("/", withAuth, (req, res) => {
-    Post.create({
-            title: req.body.title,
-            content: req.body.post_content,
-            user_id: req.session.user_id
+    Recipe.create({
+            name: req.body.rcp_name,
+            creator_id: req.session.user_id,
+            ingredients: req.body.rcp_ing,
+            instruction: req.body.rcp_ins
         })
-        .then((postData) => res.json(postData))
+        .then((rcpData) => res.json(rcpData))
         .catch((err) => {
             console.log(err);
             res.status(500).json(err);
         });
 });
-
 
 // Get a post
 router.get("/:id", (req, res) => {
