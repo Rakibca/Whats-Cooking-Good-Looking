@@ -1,0 +1,14 @@
+.letter {
+  display: inline-block;
+  opacity: 0;
+  font-size: 150px;
+}
+
+div {
+  display: inline-block;
+}
+
+body {
+  background-color: #2CA58D;
+  color: #f1dabf;
+}
