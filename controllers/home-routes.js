@@ -1,11 +1,9 @@
 const axios = require("axios");
 const router = require('express').Router();
 const sequelize = require('../config/connection');
+const {User,Recipe} = require('../models');
 require('dotenv').config();
-const {
-  User,
-  Recipe
-} = require('../models');
+API_KEY = process.env.API_KEY
 
 // GET ON RANDOM RECIPE FROM THE API (RAKIBUL)
 router.get('/', (req, res) => {
@@ -16,8 +14,7 @@ router.get('/', (req, res) => {
       number: '1' //Choose the types of recipe randomly by using tag names
     },
     headers: {
-      'X-RapidAPI-Key': '6092f415c9msh596be8e63a564f4p162e5ajsn61ab17493dba',
-      //'X-RapidAPI-Key': API_KEY,
+      'X-RapidAPI-Key': API_KEY,
       'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
     }
   };
