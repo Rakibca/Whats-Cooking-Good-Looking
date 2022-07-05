@@ -13,8 +13,7 @@ router.get('/', (req, res) => {
     method: 'GET',
     url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random',
     params: {
-      number: '1',
-      tags: 'vegetarian,dessert' //Choose the types of recipe randomly by using tag names
+      number: '1' //Choose the types of recipe randomly by using tag names
     },
     headers: {
       'X-RapidAPI-Key': '6092f415c9msh596be8e63a564f4p162e5ajsn61ab17493dba',
@@ -23,19 +22,30 @@ router.get('/', (req, res) => {
   };
   axios.request(options)
     .then(rcpData => {
-      rcpArray = [];
-      rcpArray.push(rcpData.data.recipes[0].title);
-      //console.log(rcpData.data.recipes[0].title);
-      const arrayKeys = Object.keys(rcpData.data.recipes[0].extendedIngredients);
-      const numberOfIngredients = arrayKeys.length;
-      for (i = 0; i < numberOfIngredients; i++) {
-        rcpArray.push(rcpData.data.recipes[0].extendedIngredients[i].originalName);
-        //console.log(rcpData.data.recipes[0].extendedIngredients[i].originalName);
-      }
-      rcpArray.push(rcpData.data.recipes[0].instructions);
-      //console.log(rcpData.data.recipes[0].instructions);
-      const rcps = rcpArray;
-      //console.log(rcps);
+        var rcps = {             
+            title: [],
+            ingredients: [],
+            instructions: [],
+            source_url: [],
+            image: []
+        };
+        console.log(rcpData.data.recipes[0]);
+        rcps.title.push(rcpData.data.recipes[0].title);
+        const arrayKeys = Object.keys(rcpData.data.recipes[0].extendedIngredients);
+        const numberOfIngredients = arrayKeys.length;
+        allingredients = [];
+        for (i = 0; i < numberOfIngredients; i++) {
+            allingredients.push(rcpData.data.recipes[0].extendedIngredients[i].originalName);
+        }
+        rcps.ingredients.push(allingredients);
+        instr = String(rcpData.data.recipes[0].instructions);
+        instr = instr.replaceAll("<li>", "");
+        instr = instr.replaceAll("<ol>", "");
+        instr = instr.replaceAll("</li>", "");
+        instr = instr.replaceAll("</ol>", "");
+        rcps.instructions.push(instr);
+        rcps.source_url.push(rcpData.data.recipes[0].sourceUrl);
+        rcps.image.push(rcpData.data.recipes[0].image);
 
       //Render to homepage
       res.render('homepage', {

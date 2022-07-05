@@ -1,27 +1,32 @@
 <section class="row dashboard-main tw">
     <div class="dashboard-header col-8">
         <div class="row db-btn">
-            <button type="submit" id="new-rcp-btn" class="new-rcp-btn">+ CRATE NEW RECIPE</button>
+            <button type="submit" id="new-rcp-btn" class="new-rcp-btn">+ CREATE NEW RECIPE</button>
         </div> 
     {{#if rcps.length}}
-    <section class="my-rcp-section">
-        <h2>My Recipes</h2>
-        <ul class="post-list">
-        {{#each rcps as |rcp|}}
-        <li>
-            {{> post-each rcp}}
-            <a href="/dashboard/edit/{{post.id}}" class="signupkey">EDIT RECIPE</a>
-        </li>
-        {{/each}}
-        </ul>
-    <br>
-    <br>
-    </section>
+        <section class="my-rcp-section">
+            <h2>My Recipes</h2>
+            <ul class="post-list">
+            {{#each rcps as |rcp|}}
+                <li>
+                    {{> post-each rcp}}
+                    <a href="/dashboard/edit/{{post.id}}" class="signupkey">EDIT RECIPE</a>
+                </li>
+            {{/each}}
+            </ul>
+        <br>
+        <br>
+        </section>
     {{/if}}
     </div>
 
     <div class="dashboard-apircp col-4">
-        <h1>SEARCH FUNCTION AND RECIPE FROM SEARCH</h1>
+        <div class="input-group">
+            <form class="search" action="action_page.php">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>  
+        </div>
     </div>
 </section>
 

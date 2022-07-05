@@ -23,11 +23,11 @@ Recipe.init(
             },
         },
         ingredients: {
-            type: DataTypes.STRING,
+            type: DataTypes.JSON,
             allowNull: false,
         },
         instruction: {
-            type: DataTypes.STRING,
+            type: DataTypes.JSON,
             allowNull: false,
         },
     },
