@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
@@ -25,6 +25,7 @@
                 {{/if}}
         </header>
 
+        {{#if loggedIn}}
         <div class="row overhead tw">
             <div class="lead title">
                 <h1>What's Cooking Good Looking?</h1>
@@ -35,7 +36,76 @@
         <main>
             {{{ body }}}
         </main>
+
+        {{else}}
+        <h1 class="animation">
+            <span class="letter">W</span>
+            <span class="letter">H</span>
+            <span class="letter">A</span>
+            <span class="letter">T</span>
+            <span class="letter">'</span>
+            <span class="letter">S</span>
+            <span class="letter"><img src="/images/food1.png" width="110px;"></span>
+            <br>
+            <span class="letter">C</span>
+            <span class="letter">O</span>
+            <span class="letter">O</span>
+            <span class="letter">K</span>
+            <span class="letter">I</span>
+            <span class="letter">N</span>
+            <span class="letter">G</span>
+            <span class="letter"><img src="/images/food2.png" width="120px;"></span>
+            <br>
+            <span class="letter">G</span>
+            <span class="letter">O</span>
+            <span class="letter">O</span>
+            <span class="letter">D</span>
+            <span class="letter"><img src="/images/food3.png" width="120px;"></span>
+            <br>
+            <span class="letter">L</span>
+            <span class="letter">O</span>
+            <span class="letter">O</span>
+            <span class="letter">K</span>
+            <span class="letter">I</span>
+            <span class="letter">N</span>
+            <span class="letter">G</span>
+            <span class="letter"><img src="/images/food4.png" width="100px;"></span>
+        </h1>
+
+        <main>
+            {{{ body }}}
+        </main>
+
+        {{/if}}
+
+
+
     </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+
+    <script type="text/javascript">
+    let animation = anime({
+      targets: '.letter',
+      opacity: 1,
+      translateY: 50,
+      rotate: {
+        value: 360,
+        duration: 2000,
+        easing: 'easeInExpo'
+      },
+      scale: anime.stagger([0.7, 1], {
+        from: 'center'
+      }),
+      delay: anime.stagger(100, {
+        start: 1000
+      }),
+      translateX: [-10, 30]
+    });
+    </script>
 
     {{#if loggedIn}}
     <script src="/scripts/logout.js"></script>

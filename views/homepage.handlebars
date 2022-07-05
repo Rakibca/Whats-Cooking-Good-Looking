@@ -1,8 +1,40 @@
-<ul class="post-list tw">
-    A RANDOM RECIPE FROMT THE API
-    {{#each posts as |post|}}
-    <li>
-        {{> post-each post }}
-    </li>
-    {{/each}}
-</ul>
+<div class="single-post tw">
+    <div class="post-header">
+        <div>
+            QUICK INSPIRATION: <br> <a href="{{rcps.source_url}}" class="post-name">{{rcps.title}}</a>
+        </div>
+    </div>
+        <div class="post-info">
+            <p id="post-info">
+                <br>
+                INGREDIENTS: <br> <hr> {{rcps.ingredients}}
+            </p>
+        </div>
+    <hr><hr>
+    <div class="post-content">
+        <p id="post-info">INSTRUCTIONS: <br> <hr> {{rcps.instructions}}</p>
+    </div>
+
+    <div class="post-img">
+        <img src="{{rcps.image}}" alt="OOPS! CAN'T FIND THE IMAGE!">
+    </div>
+    
+    {{#if loggedIn}}
+    <div class="row db-btn">
+        <button type="submit" id="save-rcp-btn" class="new-rcp-btn">SAVE THIS RECIPE</button>
+    </div> 
+    {{else}}
+    <br>
+    {{/if}}
+</div>
+
+
+{{#if loggedIn}}
+<div class="nodisplay">
+    <div id="rcpttl"> {{rcps.title}} </div>
+    <div id="rcping"> {{rcps.ingredients}} </div>
+    <div id="rcpins"> {{rcps.instructions}} </div>
+</div>
+
+<script src="/scripts/saverecipe.js"></script>
+{{/if}}

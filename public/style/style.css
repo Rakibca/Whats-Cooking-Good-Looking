@@ -10,6 +10,12 @@
   font-family: "Arima";
 }
 
+.letter {
+  display: inline-block;
+  opacity: 0;
+  font-size: 180px;
+}
+
 body {
   background-color: var(--snow);
 }
@@ -26,6 +32,10 @@ body {
 
 .navkey {
   margin-left: 7px;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .navkey:link, .navkey:visited {
@@ -36,10 +46,10 @@ body {
   font-size: 24px;
   color: var(--bisque);
   text-shadow:0px 0px 20px var(--cinereous);
-  -moz-transition: all 0.15s ease-in-out;
-  -o-transition: all 0.15s ease-in-out;
-  -webkit-transition: all 0.15s ease-in-out;
-  transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   text-decoration: none;
 }
 
@@ -50,6 +60,12 @@ body {
   justify-content: left;
   padding-bottom: 10px;
 }
+
+.animation {
+  justify-content: center;
+  text-align: center;
+}
+
 
 .title {
   margin-top: 1%;
@@ -114,18 +130,28 @@ input[type=password] {
   background-color: var(--bisque);
 }
 
+.signupkey {
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
 
 .signupkey:link, .signupkey:visited {
   color: var(--bistre);
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .signupkey:hover, .signupkey:active {
   color: var(--bistre);
   text-shadow:0px 0px 10px var(--bistre);
-  -moz-transition: all 0.15s ease-in;
-  -o-transition: all 0.15s ease-in;
-  -webkit-transition: all 0.15s ease-in;
-  transition: all 0.15s ease-in;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   text-decoration: none;
 }
 
@@ -166,9 +192,14 @@ input[type=password] {
 }
 
 .single-post {
+  margin: 0 auto;
   border: 3px solid var(--bistre);
   margin-bottom: 10px;
   border-radius: 10px;
+  width: 50%;
+  margin-top: 100px;
+  justify-content: center;
+  text-align: center;
 }
 
 .post-header {
@@ -180,6 +211,10 @@ input[type=password] {
 .post-name {
   font-size: 18px;
   color: var(--bisque);
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .post-name:link, .post-name:visited {
@@ -189,16 +224,33 @@ input[type=password] {
 .post-name:hover, .post-name:active {
   font-size: 24px;
   text-shadow:0px 0px 10px var(--bisque);
-  -moz-transition: all 0.15s ease-in;
-  -o-transition: all 0.15s ease-in;
-  -webkit-transition: all 0.15s ease-in;
-  transition: all 0.15s ease-in;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   text-decoration: none;
 }
 
-
 .post-info {
-  font-size: 12px;
+  font-size: 21px;
+  text-align: justify;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.post-img {
+  border-radius: 10px;
+  border: 3px solid var(--bistre);
+  width: 58%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.post-content {
+  font-size: 18px;
+  text-align: justify;
+  margin-left: 3%;
+  margin-right: 3%;
 }
 
 .db-btn {
@@ -211,4 +263,72 @@ input[type=password] {
 
 .my-rcp-section {
   margin-top: 1.5%;
+}
+
+.nodisplay {
+  display: none;
+}
+
+
+.single-rcp {
+  height: 60px;
+  overflow: hidden;
+  margin: 0 auto;
+  border: 3px solid var(--bistre);
+  margin-bottom: 10px;
+  border-radius: 10px;
+  width: 50%;
+  margin-top: 50px;
+  justify-content: center;
+  text-align: center;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.single-rcp:hover {
+  height: 150px;
+  margin: 0 auto;
+  border: 3px solid var(--bistre);
+  margin-bottom: 10px;
+  border-radius: 10px;
+  width: 70%;
+  margin-top: 50px;
+  justify-content: center;
+  text-align: center;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.rcp-header {
+  background-color: var(--bistre);
+  color: var(--bisque);
+  padding: 3px;
+}
+
+.rcp-name {
+  font-size: 18px;
+  color: var(--bisque);
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.rcp-name:link, .rcp-name:visited {
+  color: var(--bisque);
+}
+
+.rcp-name:hover, .rcp-name:active {
+  font-size: 36px;
+  text-shadow:0px 0px 10px var(--bisque);
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: default;
 }
