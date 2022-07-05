@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User, Recipe } = require('../../models');
 const withAuth = require('../../utils/auth');
+const axios = require("axios");
 
 // Create a recipe
 router.post("/", withAuth, (req, res) => {
@@ -17,6 +18,30 @@ router.post("/", withAuth, (req, res) => {
         });
 });
 
+router.get("/onlinercps", withAuth, (req, res) => {
+    res.render('onlinercps',{loggedIn: true});
+});
+
+// GET RECIPES FROM THE API BASED ON USER SEARCH (RAKIBUL)
+router.post('/search', withAuth, (req, res) => {
+    const options = {
+        method: 'GET',
+        url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search',
+        params: {
+          query: req.body.keywords,
+        },
+        headers: {
+          'X-RapidAPI-Key': 'a766c1ba87mshd3cf5bc6f455972p120e21jsne9c4889c2932',
+          'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+        }
+    };
+
+    axios.request(options).then(rcpData => {
+        res.render('onlinerpcs', rcpData);
+    })
+})
+
+  
 // Get a post
 router.get("/:id", (req, res) => {
     Post.findOne({
