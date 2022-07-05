@@ -22,6 +22,62 @@ router.get("/onlinercps", withAuth, (req, res) => {
     res.render('onlinercps',{loggedIn: true});
 });
 
+router.get("/onlinercps/:query", withAuth, (req, res) => {
+    const str = req.params.query;
+    console.log(str);
+    const options = {
+        method: 'GET',
+        url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search',
+        params: {
+          query: req.params.query,
+        },
+        headers: {
+          'X-RapidAPI-Key': 'a766c1ba87mshd3cf5bc6f455972p120e21jsne9c4889c2932',
+          'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+        }
+    };
+    axios.request(options).then(rcpData => {
+        // console.log(rcpData.data);
+        base_url = rcpData.data.baseUri;
+        olrcps = rcpData.data.results;
+        // console.log(olrcps);
+        return res.render('onlinercps', {
+            str,
+            olrcps,
+            base_url,
+            loggedIn: req.session.logged_in
+          });
+    })
+});
+
+router.get("/onlinercps/query/:id", withAuth, (req, res) => {
+    const options = {
+        method: 'GET',
+        url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search',
+        params: {
+          query: req.params.query,
+        },
+        headers: {
+          'X-RapidAPI-Key': 'a766c1ba87mshd3cf5bc6f455972p120e21jsne9c4889c2932',
+          'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+        }
+    };
+    axios.request(options).then(rcpData => {
+        // console.log(rcpData.data);
+        base_url = rcpData.data.baseUri;
+        olrcps = rcpData.data.results;
+        // console.log(olrcps);
+        return res.render('onlinercps', {
+            str,
+            olrcps,
+            base_url,
+            loggedIn: req.session.logged_in
+          });
+    })
+});
+
+
+
 // GET RECIPES FROM THE API BASED ON USER SEARCH (RAKIBUL)
 router.post('/search', withAuth, (req, res) => {
     const options = {
@@ -35,48 +91,102 @@ router.post('/search', withAuth, (req, res) => {
           'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
         }
     };
-
     axios.request(options).then(rcpData => {
-        res.render('onlinerpcs', rcpData);
+        console.log(rcpData.data);
+        return res.render('login');
     })
 })
 
   
 // Get a post
-router.get("/:id", (req, res) => {
-    Post.findOne({
+// router.get("/:id", (req, res) => {
+//     Post.findOne({
+//             where: {
+//                 id: req.params.id,
+//             },
+//             attributes: ["id", "content", "title", "date_created"],
+//             // include: [{
+//             //         model: User,
+//             //         attributes: ["username"],
+//             //     },
+//             //     {
+//             //         model: Comment,
+//             //         attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+//             //         include: {
+//             //             model: User,
+//             //             attributes: ["username"],
+//             //         },
+//             //     },
+//             // ],
+//         })
+//         .then((postData) => {
+//             if (!postData) {
+//                 res.status(404).json({
+//                     message: "No post found with this id"
+//                 });
+//                 return;
+//             }
+//             res.json(postData);
+//         })
+//         .catch((err) => {
+//             console.log(err);
+//             res.status(500).json(err);
+//         });
+// });
+
+
+// EDIT A RECIPE
+router.put("/:id", withAuth, (req, res) => {
+    Recipe.update(
+        {
+            name: req.body.rcp_name,
+            ingredients: req.body.rcp_ing,
+            instruction: req.body.rcp_ins
+        }, 
+        {
             where: {
                 id: req.params.id,
             },
-            attributes: ["id", "content", "title", "date_created"],
-            // include: [{
-            //         model: User,
-            //         attributes: ["username"],
-            //     },
-            //     {
-            //         model: Comment,
-            //         attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
-            //         include: {
-            //             model: User,
-            //             attributes: ["username"],
-            //         },
-            //     },
-            // ],
         })
-        .then((postData) => {
-            if (!postData) {
+        .then((rcpData) => {
+            if (!rcpData) {
                 res.status(404).json({
                     message: "No post found with this id"
                 });
                 return;
             }
-            res.json(postData);
+            res.json(rcpData);
         })
         .catch((err) => {
             console.log(err);
             res.status(500).json(err);
         });
 });
+
+
+//DELETE A RECIPE
+router.delete("/:id", withAuth, (req, res) => {
+    Recipe.destroy({
+            where: {
+                id: req.params.id,
+            },
+        })
+        .then((rcpData) => {
+            if (!rcpData) {
+                res.status(404).json({
+                    message: "No post found with this id"
+                });
+                return;
+            }
+            res.json(rcpData);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+
 
 
 module.exports = router;

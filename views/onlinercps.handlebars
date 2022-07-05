@@ -5,25 +5,21 @@
             <button type="submit" id="search-btn" class="search-btn"><i class="fa fa-search"></i></button>
         </form>  
     </div>
-
-    <h2>Results</h2>
-    <p>{{rcpData.base_url}}</p>
+    
+    {{#if olrcps.length}}
+        <section class="olrcp-section">
+            <h2>Results</h2>
+            <ul class="olrcp-list">
+            {{#each olrcps as |olrcp|}}
+                <li>
+                    {{> post-each-OL olrcp}}
+                </li>
+            {{/each}}
+            </ul>
+        <br>
+        <br>
+        </section>
+    {{/if}}
 </div>
-
-
-{{!-- {{#if rcps.length}}
-    <section class="my-rcp-section">
-        
-        <ul class="post-list">
-        {{#each myrcps as |myrcp|}}
-            <li>
-                {{> post-each myrcp}}
-            </li>
-        {{/each}}
-        </ul>
-    <br>
-    <br>
-    </section>
-{{/if}} --}}
 
 <script src="/scripts/search.js"></script>
