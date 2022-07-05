@@ -336,3 +336,82 @@ input[type=password] {
   margin: 0 auto;
   text-align: center;
 }
+
+.olrcp-section {
+  border: 3px solid black;
+}
+
+.olrcp-list {
+  justify-content: center;
+  text-align: center;
+  width: 90%;
+  background-color: var(--cinereous);
+  margin: 0 auto;
+  margin-top: 3%;
+  padding: 1%;
+  list-style: none;
+  border-radius: 10px;
+}
+
+.ol-rcp {
+  height: 60px;
+  overflow: hidden;
+  margin: 0 auto;
+  border: 3px solid var(--bistre);
+  margin-bottom: 10px;
+  border-radius: 10px;
+  width: 70%;
+  margin-top: 50px;
+  justify-content: center;
+  text-align: center;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.ol-rcp:hover {
+  height: 400px;
+  margin: 0 auto;
+  border: 3px solid var(--bistre);
+  margin-bottom: 10px;
+  border-radius: 10px;
+  width: 80%;
+  margin-top: 50px;
+  justify-content: center;
+  text-align: center;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.ol-header {
+  background-color: var(--bistre);
+  color: var(--bisque);
+  padding: 3px;
+}
+
+.ol-name {
+  font-size: 18px;
+  color: var(--bisque);
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.ol-name:link, .ol-name:visited {
+  color: var(--bisque);
+}
+
+.ol-name:hover, .ol-name:active {
+  font-size: 36px;
+  text-shadow:0px 0px 10px var(--bisque);
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
