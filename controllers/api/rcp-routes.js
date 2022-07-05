@@ -2,6 +2,8 @@ const router = require('express').Router();
 const { User, Recipe } = require('../../models');
 const withAuth = require('../../utils/auth');
 const axios = require("axios");
+require('dotenv').config();
+
 
 // Create a recipe
 router.post("/", withAuth, (req, res) => {
@@ -33,6 +35,7 @@ router.get("/onlinercps/:query", withAuth, (req, res) => {
         },
         headers: {
           'X-RapidAPI-Key': 'a766c1ba87mshd3cf5bc6f455972p120e21jsne9c4889c2932',
+          //'X-RapidAPI-Key': API_KEY,
           'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
         }
     };
@@ -97,7 +100,7 @@ router.post('/search', withAuth, (req, res) => {
     })
 })
 
-  
+
 // Get a post
 // router.get("/:id", (req, res) => {
 //     Post.findOne({
@@ -142,7 +145,7 @@ router.put("/:id", withAuth, (req, res) => {
             name: req.body.rcp_name,
             ingredients: req.body.rcp_ing,
             instruction: req.body.rcp_ins
-        }, 
+        },
         {
             where: {
                 id: req.params.id,
