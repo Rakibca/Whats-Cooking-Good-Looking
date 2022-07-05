@@ -338,7 +338,7 @@ input[type=password] {
 }
 
 .olrcp-section {
-  border: 3px solid black;
+  color: var(--bistre);
 }
 
 .olrcp-list {
@@ -347,7 +347,7 @@ input[type=password] {
   width: 90%;
   background-color: var(--cinereous);
   margin: 0 auto;
-  margin-top: 3%;
+  margin-top: 1%;
   padding: 1%;
   list-style: none;
   border-radius: 10px;
@@ -414,4 +414,19 @@ input[type=password] {
   transition: all 0.3s ease;
   text-decoration: none;
   cursor: pointer;
+}
+
+.saveit {
+  color: var(--bistre);
+  border-radius: 5px;
+  background-color: var(--bisque);
+  text-decoration: none;
+  padding: 5px;
+}
+
+.saveit:hover {
+  color: var(--bistre);
+  border-radius: 5px;
+  background-color: var(--bisque);
+  text-decoration: none;
 }

@@ -7,6 +7,9 @@ const axios = require("axios");
 // GET ALL RECIPES (TONY)
 router.get('/', withAuth, (req, res) => {
     Recipe.findAll({
+            where: {
+                creator_id: req.session.user_id
+            },
             attributes: [
                 'id',
                 'name',
