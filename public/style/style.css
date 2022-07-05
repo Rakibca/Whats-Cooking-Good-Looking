@@ -74,7 +74,7 @@ body {
   padding: 3px;
 }
 
-.login-section, .signup-section, .rcpform-section {
+.login-section, .signup-section, .rcpform-section, .apircp-section {
   justify-content: center;
   text-align: center;
   width: 50%;
@@ -98,7 +98,7 @@ input[type=password] {
   box-sizing: border-box;
 }
 
-.login-btn, .signup-btn, .new-rcp-btn, .post-btn, .addrcp-btn {
+.login-btn, .signup-btn, .new-rcp-btn, .post-btn, .addrcp-btn, .search-btn {
   background-color: var(--bistre);
   border: none;
   color: white;
@@ -119,7 +119,7 @@ input[type=password] {
   max-height: 50px;
 }
 
-.login-btn:hover, .signup-btn:hover, .new-rcp-btn:hover, .post-btn:hover, .addrcp-btn:hover {
+.login-btn:hover, .signup-btn:hover, .new-rcp-btn:hover, .post-btn:hover, .addrcp-btn:hover, .search-btn:hover {
   background-color: var(--bistre);
   box-shadow: 0 8px 16px 0 var(--cinereous);
   font-size: 24px;
@@ -159,6 +159,8 @@ input[type=password] {
   width: 80%;
   margin: 0 auto;
   margin-top: 10px;
+  justify-content: center;
+  text-align: center;
 }
 
 .dashboard-header {
@@ -169,14 +171,6 @@ input[type=password] {
   text-align: center;
   border: 3px solid var(--bisque);
   /* min-height: 50%; */
-}
-
-.dashboard-apircp {
-  display: flex;
-  justify-content: center;
-  border: 3px solid var(--bisque);
-  min-height: 50%;
-  color: var(--bisque);
 }
 
 .post-list {
@@ -331,4 +325,14 @@ input[type=password] {
   transition: all 0.3s ease;
   text-decoration: none;
   cursor: default;
+}
+
+.apircp-section {
+  border-radius: 10px;
+}
+
+.api-search {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
 }

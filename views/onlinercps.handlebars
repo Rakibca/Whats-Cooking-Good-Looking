@@ -1,0 +1,29 @@
+<div class="apircp-section">
+    <div class="api-search">
+        <form class="search">
+            <input type="text" placeholder="Search.." class="search-form" id="search-form">
+            <button type="submit" id="search-btn" class="search-btn"><i class="fa fa-search"></i></button>
+        </form>  
+    </div>
+
+    <h2>Results</h2>
+    <p>{{rcpData.base_url}}</p>
+</div>
+
+
+{{!-- {{#if rcps.length}}
+    <section class="my-rcp-section">
+        
+        <ul class="post-list">
+        {{#each myrcps as |myrcp|}}
+            <li>
+                {{> post-each myrcp}}
+            </li>
+        {{/each}}
+        </ul>
+    <br>
+    <br>
+    </section>
+{{/if}} --}}
+
+<script src="/scripts/search.js"></script>

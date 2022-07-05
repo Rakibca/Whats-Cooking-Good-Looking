@@ -3,14 +3,16 @@
         <div class="row db-btn">
             <button type="submit" id="new-rcp-btn" class="new-rcp-btn">+ CREATE NEW RECIPE</button>
         </div> 
-    {{#if rcps.length}}
+        <div class="row db-btn">
+            <button type="submit" id="search-btn" class="new-rcp-btn">+ SEARCH RECIPE ONLINE</button>
+        </div> 
+    {{#if myrcps.length}}
         <section class="my-rcp-section">
             <h2>My Recipes</h2>
             <ul class="post-list">
-            {{#each rcps as |rcp|}}
+            {{#each myrcps as |myrcp|}}
                 <li>
-                    {{> post-each rcp}}
-                    <a href="/dashboard/edit/{{post.id}}" class="signupkey">EDIT RECIPE</a>
+                    {{> post-each myrcp}}
                 </li>
             {{/each}}
             </ul>
@@ -20,15 +22,10 @@
     {{/if}}
     </div>
 
-    <div class="dashboard-apircp col-4">
-        <div class="input-group">
-            <form class="search" action="action_page.php">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>  
-        </div>
-    </div>
+
+
 </section>
 
 
 <script src="/scripts/creatercp.js"></script>
+<script src="/scripts/searchbtn.js"></script>

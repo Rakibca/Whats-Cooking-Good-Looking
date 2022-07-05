@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { User, Recipe } = require('../models');
 const withAuth = require('../utils/auth.js');
+const axios = require("axios");
 
 // GET ALL RECIPES (TONY)
 router.get('/', withAuth, (req, res) => {
@@ -21,9 +22,9 @@ router.get('/', withAuth, (req, res) => {
             ]
         })
         .then(rcpData => {
-            const rcps = rcpData.map(rcp => rcp.get({plain: true}));
+            const myrcps = rcpData.map(rcp => rcp.get({plain: true}));
   
-            res.render('dashboard', {rcps, loggedIn: req.session.logged_in});
+            res.render('dashboard', {myrcps, loggedIn: req.session.logged_in});
         })
         .catch(err => {
             console.log(err);
@@ -37,6 +38,15 @@ router.get('/newrcp', withAuth, (req, res) => {
         loggedIn: true
     })
 });
+
+
+
+
+
+
+
+
+
 
 // router.get('/edit/:id', withAuth, (req, res) => {
 //     Post.findOne({
